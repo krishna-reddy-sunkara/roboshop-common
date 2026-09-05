@@ -5,6 +5,8 @@ LOGS_FILE="$LOGS_FOLDER/$0.log"
 SCRIPT_DIR=$PWD
 START_TIME=$(date +%S)
 
+ mkdir -p $LOGS_FOLDER
+
 echo "$(date "+%y-%m-%d %H:%M:%S")|script started excuting at: $(date) | tee -a $LOGS_FILE
 check_root(){
   if [ $USERID -ne 0 ]; then
@@ -13,7 +15,7 @@ check_root(){
   fi
 }
    
-    mkdir -p $LOGS_FOLDER
+   
 
  VALIDATE(){
     if [ $1 -ne 0 ]; then
