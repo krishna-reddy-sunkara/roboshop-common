@@ -58,14 +58,15 @@ VALIDATE $? "Uzip $app_name code"
 
 java_setup(){
 
-    dnf install maven -y &>>$LOGS_FILE
+     dnf install maven -y &>>$LOGS_FILE
     VALIDATE $? "Installing Maven"
-cd /app 
-mvn clean package &>>$LOGS_FILE
-VALIDATE $? "Installing and Building $app_name "
 
-mv $SCRIPT_DIR target/$app_name -1.0.jar $app_name .jar 
-VALIDATE $? "Moving and Renaming $app_name "
+    cd /app 
+    mvn clean package &>>$LOGS_FILE
+    VALIDATE $? "Installing and Building $app_name"
+
+    mv target/$app_name-1.0.jar $app_name.jar 
+    VALIDATE $? "Moving and Renaming $app_name"
 }
 
 nodejs_setup(){
