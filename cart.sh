@@ -8,3 +8,4 @@ app_set
 nodejs_setup
 
 systemd_setup
+print_total_time
