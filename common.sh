@@ -7,6 +7,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 MONGODB_HOST=mongodb.daws-92s.store
+MYSQL_HOST=mysql.daws-92s.store
+
 SCRIPT_DIR=$PWD
 
 START_TIME=$(date +%S)
@@ -52,6 +54,18 @@ VALIDATE $? "Removing existing code"
 
 unzip /tmp/$app_name.zip &>>$LOGS_FILE
 VALIDATE $? "Uzip $app_name code"
+}
+
+java_setup(){
+
+    dnf install maven -y &>>$LOGS_FILE
+    VALIDATE $? "Installing Maven"
+cd /app 
+mvn clean package &>>$LOGS_FILE
+VALIDATE $? "Installing and Building $app_name "
+
+mv target/$app_name -1.0.jar $app_name .jar 
+VALIDATE $? "Moving and Renaming $app_name "
 }
 
 nodejs_setup(){
