@@ -69,9 +69,18 @@ java_setup(){
     VALIDATE $? "Moving and Renaming $app_name"
 }
 
+python_setup(){
+
+    dnf install python3 gcc python3-devel -y &>>$LOGS_FILE
+VALIDATE $? "Installing Python"
+cd /app 
+pip3 install -r requirements.txt &>>$LOGS_FILE
+VALIDATE $? "Installing dependencies"
+}
+
 nodejs_setup(){
 
-    dnf module disable nodejs -y &>>$LOGS_FILE
+dnf module disable nodejs -y &>>$LOGS_FILE
 VALIDATE $? "Disabling NodeJS Default version"
 
 dnf module enable nodejs:20 -y &>>$LOGS_FILE
