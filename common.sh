@@ -7,7 +7,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 MONGODB_HOST=mongodb.daws-92s.store
-$SCRIPT_DIR=$PWD
+SCRIPT_DIR=$PWD
 
 START_TIME=$(date +%S)
 mkdir -p $LOGS_FOLDER
