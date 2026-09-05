@@ -19,10 +19,10 @@ check_root(){
    
  VALIDATE(){
     if [ $1 -ne 0 ]; then
-    echo "$(date "+%y-%m-%d %H:%M:%S")| $2 .... failure " | tee -a $LOGS_FILE
+    echo "$(date "+%y-%m-%d %H:%M:%S") | $2 .... failure " | tee -a $LOGS_FILE
     exit 1
     else 
-    echo "$(date "+%y-%m-%d %H:%M:%S")| $2 .... success " | tee -a $LOGS_FILE
+    echo "$(date "+%y-%m-%d %H:%M:%S") | $2 .... success " | tee -a $LOGS_FILE
     fi
 }   
 
@@ -30,5 +30,5 @@ END_TIME=$(date +%S)
 
 print_total_time(){
 TOTAL_TIME=$(($END_TIME-$START_TIME))
-echo "$(date "+%y-%m-%d %H:%M:%S")| excuting time is : $TOTAL_TIME in seconds | tee -a $LOGS_FILE
+echo "$(date "+%y-%m-%d %H:%M:%S") | excuting time is : $TOTAL_TIME in seconds | tee -a $LOGS_FILE
 }
