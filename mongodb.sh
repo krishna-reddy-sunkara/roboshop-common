@@ -4,8 +4,6 @@ source ./common.sh
 
 check_root
 
-
-
 cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 VALIDATE $? "coping mongo.repo "
 
