@@ -26,9 +26,9 @@ check_root(){
     fi
 }   
 
-END_TIME=$(date +%S)
 
 print_total_time(){
+END_TIME=$(date +%S)
 TOTAL_TIME=$(($END_TIME-$START_TIME))
-echo "$(date "+%y-%m-%d %H:%M:%S") | excuting time is : $TOTAL_TIME in seconds | tee -a $LOGS_FILE
+echo "$(date "+%y-%m-%d %H:%M:%S") | excuting time is : $TOTAL_TIME in seconds " | tee -a $LOGS_FILE
 }
