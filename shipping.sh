@@ -7,7 +7,8 @@ check_root
 app_set
 java_setup
 
-systemd_setup
+systemd_setup 
+
 dnf install mysql -y  &>>$LOGS_FILE
 VALIDATE $? "Installing MySQL"
 
@@ -20,4 +21,6 @@ if [ $? -ne 0 ]; then
     VALIDATE $? "Loaded data into MySQL"
 else
     echo -e "data is already loaded ... $Y SKIPPING $N"
-fi
+fi 
+app_restart
+print_total_time
