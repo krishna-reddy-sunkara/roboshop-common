@@ -2,7 +2,7 @@
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-roboshop"
 LOGS_FILE="$LOGS_FOLDER/$0.log"
-SCRIPT_DIR=$PWD
+
 START_TIME=$(date +%S)
 
  mkdir -p $LOGS_FOLDER
